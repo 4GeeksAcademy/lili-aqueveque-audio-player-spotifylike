@@ -1,0 +1,34 @@
+/* 
+​
+fetch(string, object)
+​
+​
+*url = recurso o endpoint de la informacion que estamos solicitando
+*opciones = objecto contiene el metodo por el cual estoy haciendo la solicitud, el cuerpo de la informacion que quiero si es necesario solo cuando 
+estamos usando por metodo post o put, y contiene la cabecera de la solicitud
+​
+​
+url = "https://recurso_a_buscar"
+opciones = {
+    method: '', // GET, POST, PUT, DELETE
+    body: '', // POST, PUT
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+​
+fetch(url, opciones) // promesa (pendiente)
+    .then((response) => {
+​
+        if (!response.ok) throw new Error("Ha ocurrido algun error")
+​
+        return response.json()
+    }) // respuesta que obtenemos del servidor
+    .then((datos) => {
+        // procesa la informacion recibida
+    })
+    .catch((error) => {
+        // mostrar la informacion de error 
+    })
+​
+*/

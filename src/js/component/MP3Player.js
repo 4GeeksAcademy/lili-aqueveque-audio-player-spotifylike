@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const MP3Player = () => {
     const [songs, setSongs] = useState([]); // manage the state of songs and the current song index
-    const [currentSongIndex, setCurrentSongIndex] = useState(0);
+    const [currentSongIndex, setCurrentSongIndex] = useState(-1);
     const audioRef = useRef(null); //create a ref for the audio element
 
 
@@ -37,6 +37,12 @@ const MP3Player = () => {
         audioRef.current.src = songURL + song.url;; //This sets the src attribute of the <audio> element to the url of the selected song
         audioRef.current.play(); //This calls the play() method on the <audio> element
     };
+
+    const stopSong = () => {
+        audioRef.current.pause(); // Pause the audio
+        setCurrentSongIndex(-1); // Reset the currentSongIndex to indicate no song is playing
+    };
+
     //The playNextSong and playPreviousSong functions calculate the next and previous song 
     //indexes respectively and call the playSong function to play the appropriate song.
     const playNextSong = () => {
@@ -72,7 +78,7 @@ const MP3Player = () => {
                 <button onClick={playPreviousSong}>Previous</button>
                 <button onClick={() => playSong(currentSongIndex)}>Play</button>
                 <button onClick={playNextSong}>Next</button>
-                <button onClick={stopEverything}>Stop</button>
+                <button onClick={stopSong}>Stop</button>
             </div>
         </div>
     )
