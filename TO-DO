@@ -1,0 +1,8 @@
+1. Fetching Songs: 
+    The useEffect hook ensures that the songs are fetched from the API when the component is mounted. The fetched data is stored in the songs state.
+
+2. Playing Songs: 
+    The playSong function sets the audio source and plays the selected song. It takes a songIndex as a parameter, allowing you to play any song by passing its index.
+
+3. Next and Previous Buttons: 
+    The playNextSong and playPreviousSong functions calculate the next and previous song indexes respectively and call the playSong function to play the appropriate song.
