@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+import playlistImage from "../../img/spotify-playlist.png";
 
 const MP3Player = () => {
     const [songs, setSongs] = useState([]); // manage the state of songs and the current song index
@@ -13,17 +14,17 @@ const MP3Player = () => {
     useEffect(() => {
         // Fetch songs from the API when the component mounts
         fetch("https://playground.4geeks.com/apis/fake/sound/songs") //call API, all the songs
-            .then((res) => {
-                if (!res.ok) {
+            .then((response) => {
+                if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);
                 }
-                return res.json(); //this so that we get promise
+                return response.json(); //this so that we get promise
             })
             .then((data) => setSongs(data)) //'then' method again for handling promise
             .catch((error) => {
                 console.log("Error fetching data:", error);
             });
-    }, []); // Empty dependency array -> effect runs once after the initial render
+    }, []); // Empty -> effect runs once after the initial render
 
 
     const songURL = "https://assets.breatheco.de/apis/sound/"; // Base URL for your audio files
@@ -56,14 +57,21 @@ const MP3Player = () => {
         playSong(prevSongIndex);
     };
 
-    const stopEverything = () => {
-        // Code something to stop everything
-    }
-
-
 
     return (
         <div className="mp3-player">
+            <div className="settings"></div>
+            <div className="mp3-header">
+                <div className="box">
+                    <img className="image" src={playlistImage} alt="Playlist Image" />
+                </div>
+                <div class="box title">
+                    <p>Public Playlist</p>
+                    <p className="study">Study</p>
+                    <i className="fab fa-spotify" style={{ color: '#11a222' }}>17 songs</i>
+                </div>
+
+            </div>
             <ol>
                 {songs.map((song, index) => (
                     <li key={index} onClick={() => playSong(index)}>
@@ -73,7 +81,6 @@ const MP3Player = () => {
             </ol>
 
             <audio ref={audioRef}></audio>
-
             <div className="player-controls">
                 <button onClick={playPreviousSong}>Previous</button>
                 <button onClick={() => playSong(currentSongIndex)}>Play</button>

@@ -1,5 +1,75 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.study {
+    font-size: 85px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 1px;
+}
+
+p {
+    margin-bottom: 1px;
+}
 
 li {
-    color: #000;
-    background-color: #fff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #150722;
+}
+
+li:not(:last-child) {
+    border-bottom: 1px solid #383838;
+}
+
+.mp3-player {
+    background-image: linear-gradient(180deg, #3d1d5c 0%, rgb(30, 16, 61) 35%, #000000 100%);
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.mp3-header {
+    height: 250px;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.box {
+    display: inline-block;
+    margin: 10px;
+}
+
+.image {
+    padding-left: 8px;
+    width: 185px;
+    height: 185px;
+    object-fit: cover;
+    margin-right: 10px;
+    /* Add some space between the image and text */
+}
+
+.settings {
+    height: 30px;
+    background-color: black;
+}
+
+.fa-spotify {
+    font-size: 30px;
+}
+
+.player-controls {
+    justify-content: center;
+    background-color: black;
+    padding: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
