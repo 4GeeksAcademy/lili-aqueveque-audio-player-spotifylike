@@ -20,7 +20,7 @@ opciones = {
 fetch(url, opciones) // promesa (pendiente)
     .then((response) => {
 ​
-        if (!response.ok) throw new Error("Ha ocurrido algun error")
+        if (!response.ok) throw new Error("Ha ocurrido algun error")    <---------- use
 ​
         return response.json()
     }) // respuesta que obtenemos del servidor

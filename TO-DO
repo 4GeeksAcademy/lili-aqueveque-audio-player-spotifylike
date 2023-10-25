@@ -6,3 +6,47 @@
 
 3. Next and Previous Buttons: 
     The playNextSong and playPreviousSong functions calculate the next and previous song indexes respectively and call the playSong function to play the appropriate song.
+
+    Pseudocode:
+
+    MP3Player Component:
+
+    // State Variables
+    songs: Array of song objects
+    currentSongIndex: Integer
+    audioRef: Reference to audio element
+    
+    // useEffect Hook - Fetch Songs from API
+    useEffect:
+        Fetch songs from API
+        On successful response:
+            Update songs state with fetched data
+
+    // playSong Function - Play Selected Song
+    playSong(songIndex):
+        Get the selected song using songIndex
+        Set currentSongIndex to songIndex
+        Set audio source to the selected song's URL
+        Play the audio
+
+    // stopSong Function - Stop the Currently Playing Song
+    stopSong():
+        Pause the audio
+        Reset currentSongIndex to -1
+
+    // playNextSong Function - Play Next Song in Playlist
+    playNextSong():
+        Calculate next song index using (currentSongIndex + 1) % songs.length
+        Play the song at the calculated index
+
+    // playPreviousSong Function - Play Previous Song in Playlist
+    playPreviousSong():
+        Calculate previous song index using (currentSongIndex - 1 + songs.length) % songs.length
+        Play the song at the calculated index
+
+    // Render Method
+    Render MP3Player component:
+        Render playlist header with title, description, and icon
+        Render list of songs as clickable items
+        Render audio element with ref={audioRef}
+        Render player controls as buttons with appropriate icons
