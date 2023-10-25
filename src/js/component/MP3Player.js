@@ -67,7 +67,7 @@ const MP3Player = () => {
                 </div>
                 <div class="box title">
                     <p>Public Playlist</p>
-                    <p className="study">Study</p>
+                    <p className="study">Nostalgia</p>
                     <i className="fab fa-spotify" style={{ color: '#11a222' }}>17 songs</i>
                 </div>
 
