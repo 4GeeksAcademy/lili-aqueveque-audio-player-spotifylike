@@ -82,10 +82,11 @@ const MP3Player = () => {
 
             <audio ref={audioRef}></audio>
             <div className="player-controls">
-                <button onClick={playPreviousSong}>Previous</button>
-                <button onClick={() => playSong(currentSongIndex)}>Play</button>
-                <button onClick={playNextSong}>Next</button>
-                <button onClick={stopSong}>Stop</button>
+                <button onClick={playPreviousSong}>⏪</button>
+                <button className="play-button" onClick={() => playSong(currentSongIndex)}>▶‍️
+                </button>
+                <button onClick={playNextSong}>⏩</button>
+                <button onClick={stopSong}>⏹‍️</button>
             </div>
         </div>
     )

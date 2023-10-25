@@ -66,10 +66,19 @@ li:not(:last-child) {
 }
 
 .player-controls {
+    display: flex;
     justify-content: center;
+    align-items: center;
     background-color: black;
-    padding: 40px;
+    padding: 30px;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+button {
+    background-color: black;
+    border: none;
+    font-size: 30px;
 }
